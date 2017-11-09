@@ -8,6 +8,7 @@ import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.UiSettings;
 import com.google.android.gms.maps.model.BitmapDescriptorFactory;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.Marker;
@@ -18,6 +19,7 @@ import static com.example.shaur.nimblemaps.R.id.map;
 public class MapsActivity extends FragmentActivity implements OnMapReadyCallback,GoogleMap.OnMarkerClickListener{
 
     private GoogleMap mMap;
+    private UiSettings mUiSettings;
 
 
     @Override
@@ -47,7 +49,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap map) {
         mMap = map;
-
+        mUiSettings = mMap.getUiSettings();
+        mUiSettings.setScrollGesturesEnabled(true);
         mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
         // Add a marker in JIIT and move the camera
         LatLng JIIT = new LatLng(28.630509, 77.372091);
